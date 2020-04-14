@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+    band-call-apply区别
+    1 共同点
+      都可以改变this的指向
+      person.say.bind(ds)();
+      person.say.call(ds);
+      person.say.apply(ds);
+    
+    2 不同点
+      在于传递参数的时候，代码写法不一样
+      person.say.bind(ds)("lightgreen", "pink", "red");
+      person.say.call(ds,"lightgreen", "pink", "red");
+      person.say.apply(ds, ["lightgreen", "pink", "blue"]);
+      
+      bind需要在函数后面加()手动执行函数
+      call和apply会自动执行函数
+  */
+
+
+
+  var person = {
+    name: "张三",
+    say: function(color1, color2, color3) {
+      console.log(this.name, color1, color2, color3);
+    }
+  }
+
+  // 屌丝
+  var ds = {
+    name: "屌丝"
+  }
+
+  // person.say(123,333,444);
+  // person.say.bind(ds)("lightgreen", "pink", "red");
+  // person.say.bind(ds,"lightgreen", "pink", "red")();
+  // person.say.call(ds,"lightgreen", "pink", "red");
+  // person.say.apply(ds, ["lightgreen", "pink", "blue"]);
+  
+  </script>
+  
+</body>
+</html>
